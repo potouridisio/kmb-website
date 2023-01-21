@@ -1,6 +1,7 @@
 import type { LinksFunction, MetaFunction } from '@remix-run/cloudflare';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 
+import ScrollProgress from './components/scroll-progress';
 import styles from './styles/app.css';
 
 export const links: LinksFunction = () => [
@@ -29,6 +30,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <ScrollProgress />
         <main>
           <Outlet />
         </main>

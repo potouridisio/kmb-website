@@ -1,6 +1,7 @@
 import type { LinksFunction, MetaFunction } from '@remix-run/cloudflare';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 
+import Header from './components/header';
 import ScrollProgress from './components/scroll-progress';
 import SmoothScroll from './components/smooth-scroll';
 import styles from './styles/app.css';
@@ -32,6 +33,7 @@ export default function App() {
       </head>
       <body className="overscroll-y-none">
         <ScrollProgress />
+        <Header />
         <SmoothScroll>
           <main>
             <Outlet />

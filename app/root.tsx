@@ -4,6 +4,7 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@re
 import Header from './components/header';
 import ScrollProgress from './components/scroll-progress';
 import SmoothScroll from './components/smooth-scroll';
+import everettStyles from './styles/everett.css';
 import styles from './styles/app.css';
 
 export const links: LinksFunction = () => [
@@ -14,6 +15,10 @@ export const links: LinksFunction = () => [
   },
   {
     href: styles,
+    rel: 'stylesheet',
+  },
+  {
+    href: everettStyles,
     rel: 'stylesheet',
   },
 ];

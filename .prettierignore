@@ -1,0 +1,8 @@
+# Tip! Base your .prettierignore on .gitignore and .eslintignore (if you have one).
+node_modules
+
+/.cache
+/functions/\[\[path\]\].js
+/functions/\[\[path\]\].js.map
+/public/build
+.env

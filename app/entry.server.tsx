@@ -7,7 +7,7 @@ export default function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext
+  remixContext: EntryContext,
 ) {
   const markup = renderToString(<RemixServer context={remixContext} url={request.url} />);
 

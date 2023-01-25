@@ -1,6 +1,8 @@
 import { motion, useScroll, type Variants } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
+import { Link } from '@remix-run/react';
+
 import Logo from './logo';
 
 const variants: Variants = {
@@ -46,7 +48,9 @@ export default function Header() {
       variants={variants}
     >
       <div className="flex min-h-[5rem] items-center px-6 xl:px-16">
-        <Logo className="h-[2.3125rem] w-[2.3125rem]" />
+        <Link to="/">
+          <Logo className="h-[2.3125rem] w-[2.3125rem]" />
+        </Link>
       </div>
     </motion.header>
   );

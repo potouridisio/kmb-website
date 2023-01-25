@@ -1,6 +1,7 @@
 import type { LinksFunction, MetaFunction } from '@remix-run/cloudflare';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 
+import Footer from './components/footer';
 import Header from './components/header';
 import ScrollProgress from './components/scroll-progress';
 import SmoothScroll from './components/smooth-scroll';
@@ -43,6 +44,7 @@ export default function App() {
           <main>
             <Outlet />
           </main>
+          <Footer />
         </SmoothScroll>
         <ScrollRestoration />
         <Scripts />

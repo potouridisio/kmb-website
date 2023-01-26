@@ -1,11 +1,15 @@
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+
 import type { LinksFunction, MetaFunction } from '@remix-run/cloudflare';
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
+import { Links, LiveReload, Meta, Scripts, useLocation, useOutlet } from '@remix-run/react';
 
 import Footer from './components/footer';
 import Header from './components/header';
 import { useMobileMenuStore } from './components/mobile-menu';
 import ScrollProgress from './components/scroll-progress';
 import SmoothScroll from './components/smooth-scroll';
+import TransitionsOverlay from './components/transitions-overlay';
 import everettStyles from './styles/everett.css';
 import styles from './styles/app.css';
 import useIsMobileDevice from './utils/use-is-mobile-device';
@@ -34,7 +38,18 @@ export const meta: MetaFunction = () => ({
 
 export default function App() {
   const isMobileDevice = useIsMobileDevice();
+  const location = useLocation();
   const mobileMenu = useMobileMenuStore();
+  const outlet = useOutlet();
+  const timeoutID = useRef(0);
+
+  useEffect(() => {
+    clearTimeout(timeoutID.current);
+
+    timeoutID.current = setTimeout(() => {
+      window.scrollTo({ top: 0 });
+    }, 1100);
+  }, [location.pathname]);
 
   return (
     <html lang="en">
@@ -56,14 +71,34 @@ export default function App() {
         <ScrollProgress />
         <Header />
         <SmoothScroll>
-          <main>
-            <Outlet />
-          </main>
-          <Footer />
+          <AnimatePresence initial={false} mode="wait">
+            <motion.div
+              animate={{
+                opacity: 1,
+                transition: {
+                  delay: 0.4,
+                  duration: 1.2,
+                  ease: 'easeInOut',
+                },
+              }}
+              exit={{
+                opacity: 0,
+                transition: {
+                  delay: 1.1,
+                  duration: 0,
+                },
+              }}
+              initial={{ opacity: 0 }}
+              key={location.pathname}
+            >
+              <main>{outlet}</main>
+              <Footer />
+            </motion.div>
+          </AnimatePresence>
         </SmoothScroll>
-        <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <TransitionsOverlay />
       </body>
     </html>
   );

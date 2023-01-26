@@ -1,8 +1,9 @@
 import { motion, useScroll, type Variants } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { NAV_ITEMS } from '~/utils/constants';
 import useIsMobileDevice from '~/utils/use-is-mobile-device';
 
-import { Link } from '@remix-run/react';
+import { Link, useLocation } from '@remix-run/react';
 
 import Logo from './logo';
 import MobileMenu, { useMobileMenuStore } from './mobile-menu';
@@ -26,9 +27,20 @@ const variants: Variants = {
 
 export default function Header() {
   const isMobileDevice = useIsMobileDevice();
+  const location = useLocation();
   const mobileMenu = useMobileMenuStore();
+  const timeoutID = useRef(0);
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
+  const [selectedPathname, setSelectedPathname] = useState(location.pathname);
+
+  useEffect(() => {
+    clearTimeout(timeoutID.current);
+
+    timeoutID.current = setTimeout(() => {
+      setSelectedPathname(location.pathname);
+    }, 1100);
+  }, [location.pathname]);
 
   useEffect(() => {
     function updateState() {
@@ -59,6 +71,18 @@ export default function Header() {
           <Logo className="h-[2.3125rem] w-[2.3125rem]" />
         </Link>
         <div className="grow" />
+        <nav className="max-xl:hidden xl:space-x-16">
+          {NAV_ITEMS.map(({ href, name }) => (
+            <Link
+              aria-current={selectedPathname === href ? 'page' : undefined}
+              className={`link uppercase${selectedPathname === href ? ' after:origin-top-left after:scale-x-100' : ''}`}
+              key={href}
+              to={href}
+            >
+              {name}
+            </Link>
+          ))}
+        </nav>
         <button
           aria-label="Toggle nav"
           className={`nav-toggle${mobileMenu.open ? '' : ' before:-translate-y-1.5 after:translate-y-1.5'}`}
@@ -66,7 +90,24 @@ export default function Header() {
           type="button"
         />
       </div>
-      <MobileMenu />
+      <MobileMenu contentClassName="flex items-center">
+        <ul className="grid justify-items-start">
+          {NAV_ITEMS.map(({ href, name }) => (
+            <li key={href}>
+              <Link
+                aria-current={selectedPathname === href ? 'page' : undefined}
+                className={`link text-header${
+                  selectedPathname === href ? ' after:origin-top-left after:scale-x-100' : ''
+                }`}
+                onClick={mobileMenu.toggleMenu}
+                to={href}
+              >
+                {name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </MobileMenu>
     </motion.header>
   );
 }

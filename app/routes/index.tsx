@@ -4,6 +4,8 @@ import ArrowUpward from '~/components/arrow-upward';
 import ButtonWithIcon from '~/components/button-with-icon';
 import Sticky from '~/components/sticky';
 
+import { Link } from '@remix-run/react';
+
 const variants: Variants = {
   visible: {
     transition: {
@@ -29,10 +31,12 @@ export default function Index() {
             </p>
             <ButtonWithIcon
               className="text-black shadow-black hover:bg-black hover:text-white"
+              component={Link}
               icon={
                 <ArrowUpward className="h-[1em] w-[1em] rotate-45 text-[1rem] xl:text-[1.375rem] 3xl:text-[1.75rem]" />
               }
               iconClassName="shadow-black after:bg-black"
+              to="/who-we-are"
             >
               Who we are
             </ButtonWithIcon>

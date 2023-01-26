@@ -7,4 +7,8 @@ export const NAV_ITEMS = [
     href: '/what-we-do',
     name: 'What we do',
   },
+  {
+    href: '/our-work',
+    name: 'Our work',
+  },
 ];

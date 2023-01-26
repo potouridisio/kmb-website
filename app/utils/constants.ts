@@ -11,4 +11,8 @@ export const NAV_ITEMS = [
     href: '/our-work',
     name: 'Our work',
   },
+  {
+    href: '/careers',
+    name: 'Careers',
+  },
 ];

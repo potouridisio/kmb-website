@@ -15,4 +15,8 @@ export const NAV_ITEMS = [
     href: '/careers',
     name: 'Careers',
   },
+  {
+    href: '/evolve',
+    name: 'Evolve',
+  },
 ];

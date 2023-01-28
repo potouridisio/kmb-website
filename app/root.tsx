@@ -3,10 +3,12 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@re
 
 import Footer from './components/footer';
 import Header from './components/header';
+import { useMobileMenuStore } from './components/mobile-menu';
 import ScrollProgress from './components/scroll-progress';
 import SmoothScroll from './components/smooth-scroll';
 import everettStyles from './styles/everett.css';
 import styles from './styles/app.css';
+import useIsMobileDevice from './utils/use-is-mobile-device';
 
 export const links: LinksFunction = () => [
   {
@@ -31,13 +33,26 @@ export const meta: MetaFunction = () => ({
 });
 
 export default function App() {
+  const isMobileDevice = useIsMobileDevice();
+  const mobileMenu = useMobileMenuStore();
+
   return (
     <html lang="en">
       <head>
         <Meta />
         <Links />
       </head>
-      <body className="overscroll-y-none">
+      <body
+        className="overscroll-y-none"
+        style={
+          mobileMenu.open
+            ? {
+                overflow: 'hidden',
+                paddingRight: isMobileDevice ? undefined : 17,
+              }
+            : undefined
+        }
+      >
         <ScrollProgress />
         <Header />
         <SmoothScroll>

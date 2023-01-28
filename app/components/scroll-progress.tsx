@@ -1,7 +1,12 @@
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import useIsMobileDevice from '~/utils/use-is-mobile-device';
+
+import { useMobileMenuStore } from './mobile-menu';
 
 export default function ScrollProgress() {
+  const isMobileDevice = useIsMobileDevice();
+  const mobileMenu = useMobileMenuStore();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     damping: 30,
@@ -30,7 +35,10 @@ export default function ScrollProgress() {
         aria-valuenow={value}
         className="absolute top-0 left-0 bottom-0 w-full origin-left bg-black"
         role="progressbar"
-        style={{ scaleX }}
+        style={{
+          scaleX,
+          width: !isMobileDevice && mobileMenu.open ? 'calc(100% - 17px)' : undefined,
+        }}
       />
     </div>
   );

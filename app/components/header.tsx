@@ -1,9 +1,11 @@
 import { motion, useScroll, type Variants } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import useIsMobileDevice from '~/utils/use-is-mobile-device';
 
 import { Link } from '@remix-run/react';
 
 import Logo from './logo';
+import MobileMenu, { useMobileMenuStore } from './mobile-menu';
 
 const variants: Variants = {
   hidden: {
@@ -23,6 +25,8 @@ const variants: Variants = {
 };
 
 export default function Header() {
+  const isMobileDevice = useIsMobileDevice();
+  const mobileMenu = useMobileMenuStore();
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
 
@@ -47,11 +51,22 @@ export default function Header() {
       initial="visible"
       variants={variants}
     >
-      <div className="flex min-h-[5rem] items-center px-6 xl:px-16">
-        <Link to="/">
+      <div
+        className="flex min-h-[5rem] items-center px-6 xl:px-16"
+        style={!isMobileDevice && mobileMenu.open ? { paddingRight: 24 + 17 } : undefined}
+      >
+        <Link onClick={mobileMenu.open ? mobileMenu.toggleMenu : undefined} to="/">
           <Logo className="h-[2.3125rem] w-[2.3125rem]" />
         </Link>
+        <div className="grow" />
+        <button
+          aria-label="Toggle nav"
+          className={`nav-toggle${mobileMenu.open ? '' : ' before:-translate-y-1.5 after:translate-y-1.5'}`}
+          onClick={mobileMenu.toggleMenu}
+          type="button"
+        />
       </div>
+      <MobileMenu />
     </motion.header>
   );
 }

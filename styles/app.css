@@ -27,6 +27,10 @@
     @apply absolute -right-[2.375rem] flex h-[1.875rem] w-[1.875rem] shadow-[inset_0_0_0_0.0625rem] after:scale-0 xl:-right-[3.125rem] xl:h-[2.625rem] xl:w-[2.625rem] 3xl:-right-[4.125rem] 3xl:h-[3.375rem] 3xl:w-[3.375rem];
   }
 
+  .nav-toggle {
+    @apply relative h-12 w-12 before:absolute before:top-1/2 before:right-0 before:h-[0.03125rem] before:w-12 before:bg-current before:duration-[350ms] before:ease-[cubic-bezier(.3,_.86,_.36,_.95)] after:absolute after:right-0 after:top-1/2 after:h-[0.03125rem] after:w-6 after:bg-current after:duration-[350ms] after:ease-[cubic-bezier(.3,_.86,_.36,_.95)] xl:hidden;
+  }
+
   .text-body {
     @apply text-[0.75rem] leading-[1.6] xl:text-[0.9375rem] 3xl:text-[1.0625rem];
   }

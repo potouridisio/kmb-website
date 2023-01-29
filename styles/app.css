@@ -30,4 +30,8 @@
   .text-body {
     @apply text-[0.75rem] leading-[1.6] xl:text-[0.9375rem] 3xl:text-[1.0625rem];
   }
+
+  .text-header {
+    @apply text-[2.5rem] leading-none md:text-[3.4375rem] xl:text-[5.625rem] 3xl:text-[8.75rem];
+  }
 }

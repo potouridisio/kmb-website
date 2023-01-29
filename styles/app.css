@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply text-body relative inline-flex cursor-pointer select-none items-center justify-center rounded-full uppercase leading-normal transition-all duration-300 will-change-transform focus:outline-none xl:leading-[1.46666667] 3xl:leading-[1.52941176];
+  }
+
+  .btn:hover .btn__icon {
+    @apply after:scale-100;
+  }
+
+  .btn__icon {
+    @apply flex flex-shrink-0 items-center justify-center rounded-full transition-opacity duration-300 after:absolute after:left-0 after:top-0 after:h-full after:w-full after:origin-center after:rounded-[inherit] after:transition-all after:duration-300 [&_>_*]:relative [&_>_*]:z-20;
+  }
+
+  .btn__text {
+    @apply relative z-30;
+  }
+
+  .btn--icon-outside {
+    @apply overflow-visible bg-transparent py-1.5 px-8 shadow-[inset_0_0_0_0.0625rem] xl:py-2.5 xl:px-16 3xl:py-3.5 3xl:px-20;
+  }
+
+  .btn--icon-outside .btn__icon {
+    @apply absolute -right-[2.375rem] flex h-[1.875rem] w-[1.875rem] border after:scale-0 xl:-right-[3.125rem] xl:h-[2.625rem] xl:w-[2.625rem] 3xl:-right-[4.125rem] 3xl:h-[3.375rem] 3xl:w-[3.375rem];
+  }
+
+  .text-body {
+    @apply text-[0.75rem] leading-[1.6] xl:text-[0.9375rem] 3xl:text-[1.0625rem];
+  }
+}

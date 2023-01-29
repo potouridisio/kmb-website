@@ -18,6 +18,9 @@ module.exports = {
       fontFamily: {
         sans: ['TWKEverett', ...defaultTheme.fontFamily.sans],
       },
+      screens: {
+        '3xl': '2550px',
+      },
     },
   },
   plugins: [],

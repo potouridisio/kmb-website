@@ -11,6 +11,7 @@ module.exports = {
       white: colors.white,
       inherit: colors.inherit,
       gray: '#ededed',
+      purple: '#5d32f5',
     },
     extend: {},
   },

@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -13,7 +14,11 @@ module.exports = {
       gray: '#ededed',
       purple: '#5d32f5',
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['TWKEverett', ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [],
 };

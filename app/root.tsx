@@ -8,6 +8,7 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@re
 import Header from './components/header';
 import ScrollProgress from './components/scroll-progress';
 import styles from './styles/app.css';
+import everettStyles from './styles/everett.css';
 import { useIsomorphicLayoutEffect } from './utils/use-isomorphic-layout-effect';
 
 export const links: LinksFunction = () => [
@@ -18,6 +19,10 @@ export const links: LinksFunction = () => [
   },
   {
     href: styles,
+    rel: 'stylesheet',
+  },
+  {
+    href: everettStyles,
     rel: 'stylesheet',
   },
 ];

@@ -52,7 +52,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="antialiased">
         <div id="smooth-wrapper">
           <div id="smooth-content">
             <Outlet />

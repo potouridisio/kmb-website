@@ -1,7 +1,11 @@
 import ArrowUpward from '~/components/arrow-upward';
 import ButtonWithIcon from '~/components/button-with-icon';
+import Image from '~/components/image';
 import PinnedWithDifferentContent from '~/components/pinned-with-different-content';
+import Reveal from '~/components/reveal';
 import Toolbar from '~/components/toolbar';
+import home from '~/images/01_HOME_CLEAN.jpg';
+import kmbPattern from '~/images/KMB_PATTERN.png';
 
 const icon = <ArrowUpward className="h-[1em] w-[1em] rotate-45 text-[1rem] xl:text-[1.375rem] 3xl:text-[1.75rem]" />;
 
@@ -77,6 +81,24 @@ export default function Index() {
             </div>
           </section>
         </PinnedWithDifferentContent>
+        <Reveal>
+          <section className="h-screen">
+            <div className="relative h-full">
+              <Image
+                alt="Home"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/7AARRHVja3kAAQAEAAAASAAA/+EAGEV4aWYAAElJKgAIAAAAAAAAAAAAAAD/4QOBaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA3LjItYzAwMCA3OS4xYjY1YTc5YjQsIDIwMjIvMDYvMTMtMjI6MDE6MDEgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9IjczMjI0NjVCOEMyODMzQzgyNDFBQTQ4MjU0QkJBRTc1IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjM1MTNGOUEzNDkxMjExRUQ5RDFFRjRDNDM3QTA1NDE5IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjM1MTNGOUEyNDkxMjExRUQ5RDFFRjRDNDM3QTA1NDE5IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMS4yIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjViNGY1NzkzLTc2NGMtYjM0OC05MThlLTIwZWNmNzEyNzc3NCIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmUwMDI5Yzg4LWY2OGUtNTc0YS05YzJhLTZkOGQ4OGEzZDQ3NiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv/bAEMAAwICAgICAwICAgMDAwMEBgQEBAQECAYGBQYJCAoKCQgJCQoMDwwKCw4LCQkNEQ0ODxAQERAKDBITEhATDxAQEP/AAAsIAAYACgEBEQD/xAAVAAEBAAAAAAAAAAAAAAAAAAAFB//EACMQAAEEAQMEAwAAAAAAAAAAAAECAwQRBQAGCBITFiEiUrH/2gAIAQEAAD8AF2zyix8PHvTtxQcs84mMypSI3RTkg3ftS/igpCLoE+jVanrHNPLymW5PiwHeSHKEhIqxf0P7r//Z"
+                className="absolute left-0 top-0 h-full w-full object-cover"
+                src={home}
+              />
+              <Image
+                alt="KMB Pattern"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAQAAABQ+cdNAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAALiMAAC4jAXilP3YAAAAHdElNRQfnAgUNMhvlRiwGAAAAE0lEQVQI12M8w8mAAZgYGOgjCABragDhkJZgrwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMy0wMi0wNVQxMzo1MDoxOSswMDowMDOpdOIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjMtMDItMDVUMTM6NTA6MTkrMDA6MDBC9MxeAAAAAElFTkSuQmCC"
+                className="absolute left-0 top-0 h-full w-full object-cover"
+                src={kmbPattern}
+              />
+            </div>
+          </section>
+        </Reveal>
       </div>
     </>
   );
